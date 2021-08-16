@@ -13,10 +13,10 @@ namespace TheBulbTunes.EFDataService.Models
         public Guid Id { get; set; }
         
         [Required]
-        public Guid SongId { get; set; }
- 
+        public Guid  SelectedSongId { get; set; }
+        
         [Required]
-        public Guid AddedByUserId { get; set; }
+        public Guid AddedById { get; set; }
 
         [Required]
         public DateTime DateAdded { get; set; }
@@ -24,6 +24,6 @@ namespace TheBulbTunes.EFDataService.Models
         // The following are navigation properties made possible by the foreign-key relationship
         public virtual Song SelectedSong { get; set; }
         public virtual User AddedBy { get; set; }
-
+        
     }
 }
