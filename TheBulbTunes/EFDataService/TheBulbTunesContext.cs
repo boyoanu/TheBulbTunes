@@ -9,9 +9,9 @@ using TheBulbTunes.EFDataService.Models;
 
 namespace TheBulbTunes.EFDataService
 {
-    class TheBulbTunesContext:DbContext
+   public  class TheBulbTunesContext:DbContext
     {
-        string connectionString;
+       public string connectionString;
         //Constructor to set up the connection to the DB
         public TheBulbTunesContext()
         {
@@ -22,7 +22,7 @@ namespace TheBulbTunes.EFDataService
         // DBset properties, one for each entity/model
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Song> Song { get; set; }
+        public DbSet<Song> Songs { get; set; }
         public DbSet<Favorite>Favourites { get; set; }
 
         // OnConfiguring method
