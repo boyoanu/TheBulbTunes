@@ -81,9 +81,50 @@ namespace TheBulbTunes.EFDataService.Services
         {
             return songs.Where(s => s.Genre.Contains(searchValue, StringComparison.OrdinalIgnoreCase)).ToList();
         }
+            //Update song
+
+            public void Update(Guid id, Song songWithNewInfo)
+            {
+                // Check if a song with the supplied id exists
+                Song songToUpdate = FetchAll()
+                    .Where(s => s.SongId == id)
+                    .FirstOrDefault();
+
+                if (songToUpdate == null)
+                {
+                    Console.WriteLine($"Invalid operation! No match was found for the id you supplied.");
+                    return;
+                }
+
+                // A matching song was found. Perform the requested update.
+                if (songWithNewInfo.Title != null) songToUpdate.Title = songWithNewInfo.Title;
+                if (songWithNewInfo.Artist != null) songToUpdate.Artist = songWithNewInfo.Artist;
+                if (songWithNewInfo.Album != null) songToUpdate.Album = songWithNewInfo.Album;
+                if (songWithNewInfo.Genre != null) songToUpdate.Genre = songWithNewInfo.Genre;
+                if (songWithNewInfo.Featuring != null) songToUpdate.Featuring = songWithNewInfo.Featuring;
+                if (songWithNewInfo.ReleaseDate != null) songToUpdate.ReleaseDate = songWithNewInfo.ReleaseDate;
+                _context.SaveChanges();
+            }
 
 
-        //Update song
         //Delete song
+
+        public void Delete(Guid id)
+        {
+            // Check if a song with the supplied id exists
+            Song songToDelete = FetchAll()
+                .Where(s => s.SongId == id)
+                .FirstOrDefault();
+
+            if (songToDelete == null)
+            {
+                Console.WriteLine($"Invalid operation! No match was found for the id you supplied.");
+                return;
+            }
+
+            // A matching song was found. Perform the requested deletion.
+            _context.Songs.Remove(songToDelete);
+            _context.SaveChanges();
+        }
     }
-}
+    }
