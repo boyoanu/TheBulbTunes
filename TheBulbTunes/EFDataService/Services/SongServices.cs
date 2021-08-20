@@ -10,7 +10,7 @@ namespace TheBulbTunes.EFDataService.Services
     public class SongServices
     {
         private readonly TheBulbTunesContext _context = new TheBulbTunesContext();
-        private List<Song> _songs = new List<Song> { };
+        private List<Song> _songs = new List<Song>{ };
 
 
         //Create a song
