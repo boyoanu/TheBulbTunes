@@ -32,6 +32,6 @@ namespace TheBulbTunes.EFDataService.Models
         public DateTime ReleaseDate { get; set; }
 
         // Favourites belonging to this song
-        public List<Favorite> FavoritesList { get; set; }
+        public List<Favourite> FavoritesList { get; set; }
     }
 }
