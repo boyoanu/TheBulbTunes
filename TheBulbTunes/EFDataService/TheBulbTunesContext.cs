@@ -23,7 +23,7 @@ namespace TheBulbTunes.EFDataService
 
         public DbSet<User> Users { get; set; }
         public DbSet<Song> Songs { get; set; }
-        public DbSet<Favorite>Favourites { get; set; }
+        public DbSet<Favourite>Favourites { get; set; }
 
         // OnConfiguring method
         protected override void OnConfiguring(DbContextOptionsBuilder options) 
@@ -32,7 +32,7 @@ namespace TheBulbTunes.EFDataService
 
         }
 
-        public void Configure(EntityTypeBuilder<Favorite> builder)
+        public void Configure(EntityTypeBuilder<Favourite> builder)
         {
             // Set Id as the primary key for Favourite entity
             builder.HasKey(f => f.Id);
