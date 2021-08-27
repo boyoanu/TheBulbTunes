@@ -11,11 +11,15 @@ namespace TheBulbTunes.EFDataService
 {
    public  class TheBulbTunesContext:DbContext
     {
-       public string connectionString;
+        //public string DbPath { get; private set; }
+        public string connectionString;
         //Constructor to set up the connection to the DB
         public TheBulbTunesContext()
         {
-           connectionString = @"Data Source =DESKTOP-P4C2M1N\SQLEXPRESS;Initial Catalog=TheBulbTunesDB;Integrated Security=True;Pooling=False";
+            //var folder = Environment.SpecialFolder.LocalApplicationData;
+            //var path = Environment.GetFolderPath(folder);
+            //DbPath = $"{path}{System.IO.Path.DirectorySeparatorChar}TheBulbTunes.db";
+            connectionString = @"Data Source =DESKTOP-P4C2M1N\SQLEXPRESS;Initial Catalog=TheBulbTunesDB;Integrated Security=True;Pooling=False";
         }
 
 
@@ -29,6 +33,7 @@ namespace TheBulbTunes.EFDataService
         protected override void OnConfiguring(DbContextOptionsBuilder options) 
         {
             options.UseSqlServer(connectionString);
+            // => options.UseSqlServer($"Data Source={DbPath}");
 
         }
 
