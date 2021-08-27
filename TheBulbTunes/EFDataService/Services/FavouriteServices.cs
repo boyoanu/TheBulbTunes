@@ -8,7 +8,9 @@ using TheBulbTunes.EFDataService.Models;
 
 namespace TheBulbTunes.EFDataService.Services
 {
-   public class FavouriteServices
+   // public string DbPath { get; private set; }
+    public class FavouriteServices
+
     {
         
         private readonly TheBulbTunesContext _context = new TheBulbTunesContext();
